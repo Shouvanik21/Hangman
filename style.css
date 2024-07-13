@@ -102,13 +102,14 @@ body{
     padding: 7px;
 }
 
+.keyboard button[disabled]{
+    opacity: 0.6;
+    pointer-events: none;
+}
+
 :where(.game, .keyboard) button:hover {
     background: #8286c9;
 }
-
-/* .keyboard button{
-    background: #8286c9;
-} */
 
 .game-model{
     position: fixed;   
@@ -116,10 +117,20 @@ body{
     top: 0;
     width: 100%;
     height: 100%;
-    display: none;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+    padding: 0 10px;
     align-items: center;
     justify-content: center;
     background: rgba(0,0,0,0.6);  
+    transition: opacity 0.4s ease;
+}
+
+.game-model.show{
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .game-model img{
